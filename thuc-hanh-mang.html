@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let dataSource = []
+        function onDataSourceUpdate() {
+            let number = Number(document.getElementById("number").value)
+            dataSource.push(number)
+            document.getElementById("data-source").innerText = ""
+            for (let j = 0; j < dataSource.length; j++) {
+                document.getElementById("data-source").innerText += dataSource[j] + ","
+            }
+            document.getElementById("length").innerText = dataSource.length
+            let sum = 0
+            for (let j = 0; j < dataSource.length; j++) {
+                sum += dataSource[j]
+            }
+            document.getElementById("sum").innerText = sum
+
+            let max = dataSource[0]
+            for (let j = 1; j < dataSource.length; j++) {
+                if (dataSource[j] > max) {
+                    max = dataSource[j]
+                }
+                document.getElementById("max").innerText = max
+
+            }
+        }
+
+        function swap() {
+            let sw1 = Number(document.getElementById("swap1").value)
+            let sw2 = Number(document.getElementById("swap2").value)
+            let temp = dataSource[sw1]
+            dataSource[sw1] = dataSource[sw2]
+            dataSource[sw2] = temp
+
+        }
+    </script>
+</body>
+<input id="number" type="number">
+<input type="button" value="Input" onclick="onDataSourceUpdate()">
+<br>
+<br>
+<label for="data-source">
+    Data Source
+    <pre id="data-source"></pre>
+</label>
+<label for="length">
+    Length
+    <pre id="length"></pre>
+</label>
+<label for="sum">
+    Sum
+    <pre id="sum"></pre>
+</label>
+<label for="max">
+    max
+    <pre id="max"></pre>
+</label>
+<input id="sw1" type="number">
+<input id="sw2" type="number">
+<input type="button" onclick="swap()" value="Swap">
+<label for="swapped">
+    Swapped
+    <pre id="swapped"></pre>
+</label>
+
+</html>
