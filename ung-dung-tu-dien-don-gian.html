@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ung dung tu dien don gian</title>
+    <script>
+        function trans() {
+            let keyWord = document.getElementById("keyWord").value
+            let eN = ["dog", "cat", "fish"]
+            let vN = ["cho", "meo", "ca"]
+
+            //buoc 1: tim vi tri
+            let keyWordPosition = -1
+            for (let i = 0; i < eN.length; i++) {
+                if (keyWord == eN[i]) {
+                    keyWordPosition = i
+                    break
+                }
+            }
+            console.log(keyWordPosition)
+            //buoc 2: lay ra giai nghia tieng Viet o vi tri tuong ung
+            let meanings = vN[keyWordPosition]
+            console.log(meanings)
+            //buoc 3: hien thi giai nghia
+            document.getElementById("panel").innerText = `Nghia cua ${eN[keyWordPosition]} la ${meanings}`
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <pre id="panel"></pre>
+    Word <input id="keyWord" type="text" oninput="trans()">
+    
+</body>
+
+</html>
